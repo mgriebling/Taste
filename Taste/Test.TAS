@@ -1,0 +1,31 @@
+
+// This is a test program which can be compiled by the Taste-compiler.
+// It reads a sequence of numbers and computes the sum of all integers 
+// up to these numbers.
+
+program Test {
+    var i: Int
+
+	func Foo() {
+        var a: Int; var b: Int; var max: Int
+        read a; read b
+        if a > b { max = a } else { max = b }
+        write max
+	}
+
+	func SumUp() {
+        var sum: Int
+		sum = 0
+        while i > 0 { sum = sum + i; i = i - 1 }
+		write sum
+	}
+
+	func Main() {
+		read i
+        while i > 0 {
+			SumUp()
+			read i
+        }
+	}
+}
+

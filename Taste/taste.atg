@@ -1,0 +1,171 @@
+/**********************************************************
+**   TASTE.ATG
+**   Coco/R Swift Taste Compiler/Interpreter example.
+**   Adapted to Swift by Michael Griebling
+**      from Moessenboeck's (1990) C# example
+**********************************************************/
+
+COMPILER Taste
+/* Taste compiler/interpreter */
+
+// types
+let undef = 0; let integer = 1; let boolean = 2
+
+// object kinds
+let variable = 0; let proc = 1
+
+public var tab : SymbolTable!
+public var gen : CodeGenerator!
+
+/*--------------------------------------------------------------------------*/
+
+CHARACTERS
+  letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".
+  digit = "0123456789".
+  cr = '\r' .
+  lf = '\n' .
+  tab = '\t' .
+
+TOKENS
+  ident  = letter {letter | digit}.
+  number = digit {digit}.
+
+COMMENTS FROM "/*" TO "*/" NESTED
+COMMENTS FROM "//" TO lf
+
+IGNORE cr + lf + tab
+
+PRODUCTIONS
+  Taste                                  (. var name = "" .)
+  =
+    "program" Ident<&name>               (. tab.OpenScope() .)
+    '{'
+        { VarDecl [';'] | ProcDecl }
+    '}'                                  (. tab.CloseScope()
+                                            if gen.progStart == -1 { SemErr("main function never defined") }
+                                          .)
+    .
+
+  ProcDecl                              (. var name = ""; var obj: Obj; var adr: Int .)
+    = "func"
+       Ident<&name>                     (. obj = tab.NewObj(name, proc, undef); obj.adr = gen.pc
+                                           if name == "Main" { gen.progStart = gen.pc }
+                                           tab.OpenScope() .)
+      '(' ')'
+      '{'                               (. gen.Emit( .ENTER, 0 ); adr = gen.pc - 2 .)
+          StatSeq
+       '}'                              (. gen.Emit( .LEAVE ); gen.Emit( .RET )
+                                           gen.Patch(adr, tab.topScope!.nextAdr)
+                                           tab.CloseScope() .)
+        .
+
+  Type<_ type: inout Int>
+    =                                    (. type = undef .)
+    ( "Int"                              (. type = integer .)
+    | "Bool"                             (. type = boolean .)
+    ).
+
+  VarDecl                                (. var name = ""; var type = undef .)
+    = "var" Ident<&name>
+      ':' Type<&type>                    (. _ = tab.NewObj(name, variable, type) .)
+    .
+
+  Ident<_ name: inout String>
+  = ident                                (. name = t.val .)
+    .
+
+  Stat                                   (. var type = undef
+                                            var name = ""
+                                            var obj: Obj
+                                            var adr, adr2, loopstart: Int .)
+    =
+      Ident<&name>                       (. obj = tab.Find(name) .)
+      ( "="                              (. if obj.kind != variable { SemErr("cannot assign to procedure") } .)
+            Expr<&type>                  (. if type != obj.type { SemErr("incompatible types") }
+                                            if obj.level == 0 { gen.Emit( .STOG, obj.adr ) }
+                                            else { gen.Emit( .STO, obj.adr ) } .)
+     | '(' ')'                           (. if obj.kind != proc { SemErr("object is not a procedure") }
+                                            gen.Emit( .CALL, obj.adr ) .)
+      )
+    | "if" Expr<&type>                   (. if type != boolean { SemErr("boolean type expected") }
+                                            gen.Emit( .FJMP, 0 ); adr = gen.pc - 2  .)
+      '{' StatSeq '}'
+    [ "else" '{'                         (. gen.Emit( .JMP, 0 ); adr2 = gen.pc - 2
+                                            gen.Patch(adr, gen.pc); adr = adr2 .)
+        StatSeq '}'
+    ]                                    (. gen.Patch(adr, gen.pc) .)
+    | "while"                            (. loopstart = gen.pc .)
+       Expr<&type>                       (. if type != boolean { SemErr("boolean type expected") }
+                                            gen.Emit( .FJMP, 0 ); adr = gen.pc - 2 .)
+     '{' StatSeq                         (. gen.Emit( .JMP, loopstart ); gen.Patch(adr, gen.pc) .)
+     '}'
+    | "read" Ident<&name>                (. obj = tab.Find(name);
+                                            if obj.type != integer { SemErr("integer type expected") }
+                                            gen.Emit( .READ )
+                                            if obj.level == 0 { gen.Emit( .STOG, obj.adr ) }
+                                            else { gen.Emit( .STO, obj.adr ) } .)
+    | "write" Expr<&type>                (. if type != integer { SemErr("integer type expected") }
+                                            gen.Emit( .WRITE ) .)
+    | VarDecl
+    .
+
+  StatSeq = Stat { [';'] Stat } .
+
+  Expr<_ type: inout Int>                (. var type1 = 0; var op = Op.UNDEF .)
+    =
+    SimExpr<&type>
+    [ RelOp<&op> SimExpr<&type1>         (. if type != type1 { SemErr("incompatible types") }
+                                            gen.Emit(op); type = boolean .)
+    ].
+
+  SimExpr<_ type: inout Int>             (. var type1 = undef; var op = Op.UNDEF .)
+  =
+    Term<&type>
+    { AddOp<&op> Term<&type1>            (. if type != integer || type1 != integer { SemErr("integer type expected") }
+                                            gen.Emit(op) .)
+    }.
+
+  Term<_ type: inout Int>                (. var type1 = undef; var op = Op.UNDEF .)
+  =
+    Factor<&type>
+    { MulOp<&op> Factor<&type1>          (. if type != integer || type1 != integer { SemErr("integer type expected") }
+                                            gen.Emit(op) .)
+    }.
+
+  Factor<_ type: inout Int>              (. var n = 0; var obj: Obj; var name = "" .)
+    =                                    (. type = undef .)
+    ( Ident<&name>                       (. obj = tab.Find(name); type = obj.type
+                                            if obj.kind == variable {
+                                                if obj.level == 0 { gen.Emit( .LOADG, obj.adr ) }
+                                                else { gen.Emit( .LOAD, obj.adr ) }
+                                            } else { SemErr("variable expected") } .)
+    | "true"                             (. gen.Emit( .CONST, 1 ); type = boolean .)
+    | "false"                            (. gen.Emit( .CONST, 0 ); type = boolean .)
+    | number                             (. n = Int(t.val) ?? 0
+                                            gen.Emit( .CONST, n ); type = integer .)
+    | "-" Factor<&type>                  (. if type != integer { SemErr("integer type expected"); type = integer }
+                                            gen.Emit( .NEG ) .)
+    ).
+
+  MulOp<_ op: inout Op>
+  =                                      (. op = .MUL .)
+    ( "*"
+    | "/"                                (. op = .DIV .)
+    ).
+
+  AddOp<_ op: inout Op>
+  =                                      (. op = .ADD.)
+    ( "+"
+    | "-"                                (. op = .SUB.)
+    ).
+
+  RelOp<_ op: inout Op>
+  =                                      (. op = .EQU .)
+    ( "=="
+    | "<"                                (. op = .LSS .)
+    | ">"                                (. op = .GTR .)
+    ).
+
+END Taste.
+
+

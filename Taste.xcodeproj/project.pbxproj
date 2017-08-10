@@ -7,24 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F81E30B1F3B99AE00FB3BBC /* Taste.IN in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F81E30A1F3B99A500FB3BBC /* Taste.IN */; };
+		2F81E30D1F3B99D400FB3BBC /* Test.TAS in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F81E30C1F3B99CD00FB3BBC /* Test.TAS */; };
 		2FBAB0D01F39E2D1005180B1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0CF1F39E2D1005180B1 /* main.swift */; };
+		2FBAB0D81F39E42E005180B1 /* SymTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0D71F39E42E005180B1 /* SymTab.swift */; };
+		2FBAB0DE1F3A05F9005180B1 /* CodeGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0DD1F3A05F9005180B1 /* CodeGen.swift */; };
+		2FBAB0E01F3A47D8005180B1 /* Parser.frame in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0DF1F3A47D8005180B1 /* Parser.frame */; };
+		2FBAB0E41F3A4AFD005180B1 /* String+Char.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0E31F3A4AFD005180B1 /* String+Char.swift */; };
+		477BFB911F3C648900A3D79E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BFB8F1F3C648900A3D79E /* Parser.swift */; };
+		477BFB921F3C648900A3D79E /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BFB901F3C648900A3D79E /* Scanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2FBAB0CA1F39E2D1005180B1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				2F81E30D1F3B99D400FB3BBC /* Test.TAS in CopyFiles */,
+				2F81E30B1F3B99AE00FB3BBC /* Taste.IN in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F81E30A1F3B99A500FB3BBC /* Taste.IN */ = {isa = PBXFileReference; lastKnownFileType = text; path = Taste.IN; sourceTree = "<group>"; };
+		2F81E30C1F3B99CD00FB3BBC /* Test.TAS */ = {isa = PBXFileReference; lastKnownFileType = text; path = Test.TAS; sourceTree = "<group>"; };
+		2F81E30F1F3BABCD00FB3BBC /* mod2.atg */ = {isa = PBXFileReference; lastKnownFileType = text; path = mod2.atg; sourceTree = "<group>"; };
 		2FBAB0CC1F39E2D1005180B1 /* Taste */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Taste; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBAB0CF1F39E2D1005180B1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2FBAB0D61F39E2F7005180B1 /* taste.atg */ = {isa = PBXFileReference; lastKnownFileType = text; path = taste.atg; sourceTree = "<group>"; };
+		2FBAB0D71F39E42E005180B1 /* SymTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymTab.swift; sourceTree = "<group>"; };
+		2FBAB0DD1F3A05F9005180B1 /* CodeGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeGen.swift; sourceTree = "<group>"; };
+		2FBAB0DF1F3A47D8005180B1 /* Parser.frame */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Parser.frame; sourceTree = SOURCE_ROOT; };
+		2FBAB0E31F3A4AFD005180B1 /* String+Char.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Char.swift"; sourceTree = "<group>"; };
+		477BFB8D1F3C643900A3D79E /* Scanner.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scanner.frame; sourceTree = "<group>"; };
+		477BFB8E1F3C644400A3D79E /* Copyright.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Copyright.frame; sourceTree = "<group>"; };
+		477BFB8F1F3C648900A3D79E /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		477BFB901F3C648900A3D79E /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +60,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F81E30E1F3BA26A00FB3BBC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2FBAB0D61F39E2F7005180B1 /* taste.atg */,
+				2F81E30F1F3BABCD00FB3BBC /* mod2.atg */,
+				2F81E30C1F3B99CD00FB3BBC /* Test.TAS */,
+				2FBAB0DF1F3A47D8005180B1 /* Parser.frame */,
+				477BFB8D1F3C643900A3D79E /* Scanner.frame */,
+				477BFB8E1F3C644400A3D79E /* Copyright.frame */,
+				2F81E30A1F3B99A500FB3BBC /* Taste.IN */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		2FBAB0C31F39E2D1005180B1 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +94,12 @@
 			isa = PBXGroup;
 			children = (
 				2FBAB0CF1F39E2D1005180B1 /* main.swift */,
+				477BFB8F1F3C648900A3D79E /* Parser.swift */,
+				477BFB901F3C648900A3D79E /* Scanner.swift */,
+				2FBAB0D71F39E42E005180B1 /* SymTab.swift */,
+				2FBAB0DD1F3A05F9005180B1 /* CodeGen.swift */,
+				2FBAB0E31F3A4AFD005180B1 /* String+Char.swift */,
+				2F81E30E1F3BA26A00FB3BBC /* Support */,
 			);
 			path = Taste;
 			sourceTree = "<group>";
@@ -122,6 +164,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FBAB0D01F39E2D1005180B1 /* main.swift in Sources */,
+				2FBAB0E01F3A47D8005180B1 /* Parser.frame in Sources */,
+				477BFB911F3C648900A3D79E /* Parser.swift in Sources */,
+				2FBAB0DE1F3A05F9005180B1 /* CodeGen.swift in Sources */,
+				2FBAB0E41F3A4AFD005180B1 /* String+Char.swift in Sources */,
+				477BFB921F3C648900A3D79E /* Scanner.swift in Sources */,
+				2FBAB0D81F39E42E005180B1 /* SymTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +303,7 @@
 				2FBAB0D51F39E2D1005180B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
