@@ -21,29 +21,29 @@ program Test {
 
   func Foo() {
     var a: Int; var b: Int; var max: Int
-    read a; read b
+    read(a); read(b)
     if a > b { max = a } else { max = b }
-    write max
+    print(max)
   }
 
   func SumUp() {
     var sum: Int
     sum = 0
     while i > 0 { sum = sum + i; i = i - 1 }
-    write sum
+    print(sum)
   }
 
   func Main() {
-    read i
+    read(i)
     while i > 0 {
       SumUp()
-      read i
+      read(i)
     }
   }
 }
 
 ```
-And here's the generated output (given this input *3 5 100 0*):
+And here's the generated output ( given this input *3 5 100 0* ):
 
 ```
 Parsing
