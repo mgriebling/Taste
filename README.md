@@ -43,7 +43,7 @@ program Test {
 }
 
 ```
-And here's the generated output:
+And here's the generated output (given this input *3 5 100 0*):
 
 ```
 Parsing
