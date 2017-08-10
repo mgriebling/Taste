@@ -99,12 +99,12 @@ PRODUCTIONS
                                             gen.Emit( .FJMP, 0 ); adr = gen.pc - 2 .)
      '{' StatSeq                         (. gen.Emit( .JMP, loopstart ); gen.Patch(adr, gen.pc) .)
      '}'
-    | "read" Ident<&name>                (. obj = tab.Find(name);
+    | "read" '(' Ident<&name> ')'        (. obj = tab.Find(name);
                                             if obj.type != integer { SemErr("integer type expected") }
                                             gen.Emit( .READ )
                                             if obj.level == 0 { gen.Emit( .STOG, obj.adr ) }
                                             else { gen.Emit( .STO, obj.adr ) } .)
-    | "write" Expr<&type>                (. if type != integer { SemErr("integer type expected") }
+    | "print" '(' Expr<&type> ')'        (. if type != integer { SemErr("integer type expected") }
                                             gen.Emit( .WRITE ) .)
     | VarDecl
     .

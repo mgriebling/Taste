@@ -26,7 +26,7 @@
     Coco/R itself) does not fall under the GNU General Public License.
 
     NOTE: The code below has been automatically generated from the
-    Parser.frame, Scanner.frame and taste.atg files.  DO NOT EDIT HERE.
+    Parser.frame, Scanner.frame and Coco.atg files.  DO NOT EDIT HERE.
 -------------------------------------------------------------------------*/
 
 import Foundation
@@ -46,7 +46,7 @@ public class Parser {
 	public let _else = 16
 	public let _while = 17
 	public let _read = 18
-	public let _write = 19
+	public let _print = 19
 	public let _true = 20
 	public let _false = 21
 	public let maxT = 29
@@ -260,15 +260,19 @@ public class Parser {
 			Expect(6 /* "}" */)
 		case _read: 
 			Get()
+			Expect(8 /* "(" */)
 			Ident(&name)
+			Expect(9 /* ")" */)
 			obj = tab.Find(name);
 			if obj.type != integer { SemErr("integer type expected") }
 			gen.Emit( .READ )
 			if obj.level == 0 { gen.Emit( .STOG, obj.adr ) }
 			else { gen.Emit( .STO, obj.adr ) } 
-		case _write: 
+		case _print: 
 			Get()
+			Expect(8 /* "(" */)
 			Expr(&type)
+			Expect(9 /* ")" */)
 			if type != integer { SemErr("integer type expected") }
 			gen.Emit( .WRITE ) 
 		case _var: 
@@ -425,7 +429,7 @@ public class Errors {
 		case 16: s = "\"else\" expected"
 		case 17: s = "\"while\" expected"
 		case 18: s = "\"read\" expected"
-		case 19: s = "\"write\" expected"
+		case 19: s = "\"print\" expected"
 		case 20: s = "\"true\" expected"
 		case 21: s = "\"false\" expected"
 		case 22: s = "\"-\" expected"

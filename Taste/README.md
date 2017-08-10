@@ -7,7 +7,7 @@ The compiler tool produces machine code for a virtual machine that also runs in 
 Both tools were converted from the C# version available from the Coco/R repository at http://www.ssw.uni-linz.ac.at/Coco/
 
 The included attributed grammar file _taste.atg_ and the framework files are included.  
-New source files for the Taste language can be produced using these files and the Swift-based Coco tool.
+New source files for the Taste compiler can be produced using these files and the Swift-based Coco tool.
 
 The following example compiles and runs successfully using the Taste compiler/simulator:
 

@@ -26,7 +26,7 @@
     Coco/R itself) does not fall under the GNU General Public License.
 
     NOTE: The code below has been automatically generated from the
-    Parser.frame, Scanner.frame and taste.atg files.  DO NOT EDIT HERE.
+    Parser.frame, Scanner.frame and Coco.atg files.  DO NOT EDIT HERE.
 -------------------------------------------------------------------------*/
 
 import Foundation
@@ -392,7 +392,7 @@ public class Scanner {
 			case "else": t.kind = 16
 			case "while": t.kind = 17
 			case "read": t.kind = 18
-			case "write": t.kind = 19
+			case "print": t.kind = 19
 			case "true": t.kind = 20
 			case "false": t.kind = 21
 			default: break
