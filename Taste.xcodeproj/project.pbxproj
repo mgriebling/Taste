@@ -15,6 +15,7 @@
 		2FBAB0E41F3A4AFD005180B1 /* String+Char.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0E31F3A4AFD005180B1 /* String+Char.swift */; };
 		477BFB921F3C648900A3D79E /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BFB901F3C648900A3D79E /* Scanner.swift */; };
 		477BFB951F3C6E6B00A3D79E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477BFB941F3C6E6B00A3D79E /* Parser.swift */; };
+		477BFB971F3C6EC200A3D79E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 477BFB961F3C6EC200A3D79E /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		477BFB901F3C648900A3D79E /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		477BFB931F3C660800A3D79E /* Parser.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Parser.frame; sourceTree = "<group>"; };
 		477BFB941F3C6E6B00A3D79E /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		477BFB961F3C6EC200A3D79E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		2F81E30E1F3BA26A00FB3BBC /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				477BFB961F3C6EC200A3D79E /* README.md */,
 				2FBAB0D61F39E2F7005180B1 /* taste.atg */,
 				2F81E30F1F3BABCD00FB3BBC /* mod2.atg */,
 				2F81E30C1F3B99CD00FB3BBC /* Test.TAS */,
@@ -165,6 +168,7 @@
 				2FBAB0D01F39E2D1005180B1 /* main.swift in Sources */,
 				2FBAB0DE1F3A05F9005180B1 /* CodeGen.swift in Sources */,
 				477BFB951F3C6E6B00A3D79E /* Parser.swift in Sources */,
+				477BFB971F3C6EC200A3D79E /* README.md in Sources */,
 				2FBAB0E41F3A4AFD005180B1 /* String+Char.swift in Sources */,
 				477BFB921F3C648900A3D79E /* Scanner.swift in Sources */,
 				2FBAB0D81F39E42E005180B1 /* SymTab.swift in Sources */,
