@@ -43,7 +43,7 @@ program Test {
 }
 
 ```
-And here's the generated output ( given this input *3 5 100 0* ):
+And here's the generated machine code output:
 
 ```
 Parsing
@@ -99,7 +99,11 @@ Parsed correctly
 115: JMP 98
 118: LEAVE 
 119: RET 
+```
 
+and the output given this input *3 5 100 0* :
+
+```
 6
 15
 5050
