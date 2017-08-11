@@ -45,7 +45,7 @@
 		477BFB8D1F3C643900A3D79E /* Scanner.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scanner.frame; sourceTree = "<group>"; };
 		477BFB8E1F3C644400A3D79E /* Copyright.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Copyright.frame; sourceTree = "<group>"; };
 		477BFB931F3C660800A3D79E /* Parser.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Parser.frame; sourceTree = "<group>"; };
-		477BFB961F3C6EC200A3D79E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		477BFB961F3C6EC200A3D79E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
