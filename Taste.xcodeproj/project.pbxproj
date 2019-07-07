@@ -10,11 +10,11 @@
 		2FB5E2E91F3C807800018CAC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0CF1F39E2D1005180B1 /* main.swift */; };
 		2FB5E2EC1F3C807800018CAC /* SymTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0D71F39E42E005180B1 /* SymTab.swift */; };
 		2FB5E2ED1F3C807800018CAC /* CodeGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0DD1F3A05F9005180B1 /* CodeGen.swift */; };
-		2FB5E2EE1F3C807800018CAC /* String+Char.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAB0E31F3A4AFD005180B1 /* String+Char.swift */; };
 		2FB5E2F11F3C81BF00018CAC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5E2EF1F3C81BF00018CAC /* Parser.swift */; };
 		2FB5E2F21F3C81BF00018CAC /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5E2F01F3C81BF00018CAC /* Scanner.swift */; };
 		2FB5E2F31F3C824500018CAC /* Taste.IN in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2FB5E2E71F3C7DE900018CAC /* Taste.IN */; };
 		2FB5E2F41F3C824500018CAC /* Test.TAS in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2FB5E2E81F3C7E6200018CAC /* Test.TAS */; };
+		4751246C22D21E0800B67AE6 /* String+Char.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4751246B22D21E0700B67AE6 /* String+Char.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +41,7 @@
 		2FBAB0D61F39E2F7005180B1 /* taste.atg */ = {isa = PBXFileReference; lastKnownFileType = text; path = taste.atg; sourceTree = "<group>"; };
 		2FBAB0D71F39E42E005180B1 /* SymTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymTab.swift; sourceTree = "<group>"; };
 		2FBAB0DD1F3A05F9005180B1 /* CodeGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeGen.swift; sourceTree = "<group>"; };
-		2FBAB0E31F3A4AFD005180B1 /* String+Char.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Char.swift"; sourceTree = "<group>"; };
+		4751246B22D21E0700B67AE6 /* String+Char.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Char.swift"; sourceTree = "<group>"; };
 		477BFB8D1F3C643900A3D79E /* Scanner.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scanner.frame; sourceTree = "<group>"; };
 		477BFB8E1F3C644400A3D79E /* Copyright.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Copyright.frame; sourceTree = "<group>"; };
 		477BFB931F3C660800A3D79E /* Parser.frame */ = {isa = PBXFileReference; lastKnownFileType = text; path = Parser.frame; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 				2FB5E2F01F3C81BF00018CAC /* Scanner.swift */,
 				2FBAB0D71F39E42E005180B1 /* SymTab.swift */,
 				2FBAB0DD1F3A05F9005180B1 /* CodeGen.swift */,
-				2FBAB0E31F3A4AFD005180B1 /* String+Char.swift */,
+				4751246B22D21E0700B67AE6 /* String+Char.swift */,
 				2F81E30E1F3BA26A00FB3BBC /* Support */,
 			);
 			path = Taste;
@@ -130,22 +130,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Solinst Canada";
 				TargetAttributes = {
 					2FBAB0CB1F39E2D1005180B1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 37VFB869JC;
+						DevelopmentTeam = 6389FT2N69;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 2FBAB0C71F39E2D1005180B1 /* Build configuration list for PBXProject "Taste" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2FBAB0C31F39E2D1005180B1;
 			productRefGroup = 2FBAB0CD1F39E2D1005180B1 /* Products */;
@@ -166,8 +168,8 @@
 				2FB5E2EC1F3C807800018CAC /* SymTab.swift in Sources */,
 				2FB5E2F11F3C81BF00018CAC /* Parser.swift in Sources */,
 				2FB5E2ED1F3C807800018CAC /* CodeGen.swift in Sources */,
+				4751246C22D21E0800B67AE6 /* String+Char.swift in Sources */,
 				2FB5E2F21F3C81BF00018CAC /* Scanner.swift in Sources */,
-				2FB5E2EE1F3C807800018CAC /* String+Char.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,21 +180,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -220,6 +231,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -227,21 +239,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -261,24 +282,26 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		2FBAB0D41F39E2D1005180B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 37VFB869JC;
+				DEVELOPMENT_TEAM = 6389FT2N69;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		2FBAB0D51F39E2D1005180B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 37VFB869JC;
+				DEVELOPMENT_TEAM = 6389FT2N69;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

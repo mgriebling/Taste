@@ -14,8 +14,8 @@ if inputs.count < 2 {
     print("No input file specified")
 } else {
     /* open the source file (Scanner.S_src)  */
-    var srcName = inputs[1]
-    var input = InputStream(fileAtPath: srcName)!
+    let srcName = inputs[1]
+    let input = InputStream(fileAtPath: srcName)!
     let scanner = Scanner(s: input)
     
     print("Parsing")
